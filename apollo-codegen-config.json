@@ -1,0 +1,30 @@
+{
+  "schemaNamespace" : "GraphQL",
+  "input" : {
+    "operationSearchPaths" : [
+      "./SWGraphQL/Operations/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "./SWGraphQL/*.graphqls"
+    ]
+  },
+  "output" : {
+    "testMocks" : {
+      "none" : {
+      }
+    },
+    "schemaTypes" : {
+      "path" : "./SWGraphQL/Generated",
+      "moduleType" : {
+        "embeddedInTarget" : {
+          "name" : "SwiftMvGql",
+          "accessModifier": "public"
+        }
+      }
+    },
+    "operations" : {
+      "inSchemaModule" : {
+      }
+    }
+  }
+}
