@@ -2,10 +2,10 @@
   "schemaNamespace" : "GraphQL",
   "input" : {
     "operationSearchPaths" : [
-      "./SWGraphQL/Operations/*.graphql"
+      "./SWGraphQL/Operation/*.graphql"
     ],
     "schemaSearchPaths" : [
-      "./SWGraphQL/*.graphqls"
+      "./SWGraphQL/Schema/*.graphqls"
     ]
   },
   "output" : {

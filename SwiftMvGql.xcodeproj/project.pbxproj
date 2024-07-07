@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		148323322C38FB3400687F91 /* SwiftMvGqlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148323312C38FB3400687F91 /* SwiftMvGqlApp.swift */; };
+		148323322C38FB3400687F91 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148323312C38FB3400687F91 /* App.swift */; };
 		148323342C38FB3400687F91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148323332C38FB3400687F91 /* ContentView.swift */; };
 		148323362C38FB3500687F91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 148323352C38FB3500687F91 /* Assets.xcassets */; };
 		148323392C38FB3500687F91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 148323382C38FB3500687F91 /* Preview Assets.xcassets */; };
@@ -33,6 +33,7 @@
 		148323812C3A02D600687F91 /* GraphQL.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148323702C3A02D600687F91 /* GraphQL.graphql.swift */; };
 		148323842C3A032800687F91 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 148323832C3A032800687F91 /* Apollo */; };
 		148323862C3A034F00687F91 /* ApolloAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 148323852C3A034F00687F91 /* ApolloAPI */; };
+		1483238C2C3A1BE800687F91 /* ApolloClient+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148323882C3A1A0A00687F91 /* ApolloClient+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +62,7 @@
 
 /* Begin PBXFileReference section */
 		1483232E2C38FB3400687F91 /* SwiftMvGql.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftMvGql.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		148323312C38FB3400687F91 /* SwiftMvGqlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftMvGqlApp.swift; sourceTree = "<group>"; };
+		148323312C38FB3400687F91 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		148323332C38FB3400687F91 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		148323352C38FB3500687F91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		148323382C38FB3500687F91 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		1483236D2C3A02D600687F91 /* SchemaConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaConfiguration.swift; sourceTree = "<group>"; };
 		1483236E2C3A02D600687F91 /* SchemaMetadata.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchemaMetadata.graphql.swift; sourceTree = "<group>"; };
 		148323702C3A02D600687F91 /* GraphQL.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQL.graphql.swift; sourceTree = "<group>"; };
+		148323882C3A1A0A00687F91 /* ApolloClient+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApolloClient+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +131,8 @@
 		148323302C38FB3400687F91 /* SwiftMvGql */ = {
 			isa = PBXGroup;
 			children = (
-				148323312C38FB3400687F91 /* SwiftMvGqlApp.swift */,
+				148323872C3A03A800687F91 /* AllFilms */,
+				148323312C38FB3400687F91 /* App.swift */,
 				148323332C38FB3400687F91 /* ContentView.swift */,
 				148323352C38FB3500687F91 /* Assets.xcassets */,
 				148323372C38FB3500687F91 /* Preview Content */,
@@ -148,20 +151,21 @@
 		148323502C3A020500687F91 /* SWGraphQL */ = {
 			isa = PBXGroup;
 			children = (
+				1483238A2C3A1A2900687F91 /* Schema */,
+				1483235D2C3A02D600687F91 /* Operation */,
 				148323712C3A02D600687F91 /* Generated */,
-				1483235D2C3A02D600687F91 /* Operations */,
-				1483235B2C3A02D600687F91 /* schema.graphqls */,
 				148323512C3A020500687F91 /* SWGraphQL.h */,
+				148323882C3A1A0A00687F91 /* ApolloClient+.swift */,
 			);
 			path = SWGraphQL;
 			sourceTree = "<group>";
 		};
-		1483235D2C3A02D600687F91 /* Operations */ = {
+		1483235D2C3A02D600687F91 /* Operation */ = {
 			isa = PBXGroup;
 			children = (
 				1483235C2C3A02D600687F91 /* AllFilmsQuery.graphql */,
 			);
-			path = Operations;
+			path = Operation;
 			sourceTree = "<group>";
 		};
 		1483235F2C3A02D600687F91 /* Queries */ = {
@@ -230,6 +234,21 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		148323872C3A03A800687F91 /* AllFilms */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AllFilms;
+			sourceTree = "<group>";
+		};
+		1483238A2C3A1A2900687F91 /* Schema */ = {
+			isa = PBXGroup;
+			children = (
+				1483235B2C3A02D600687F91 /* schema.graphqls */,
+			);
+			path = Schema;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,7 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				148323342C38FB3400687F91 /* ContentView.swift in Sources */,
-				148323322C38FB3400687F91 /* SwiftMvGqlApp.swift in Sources */,
+				148323322C38FB3400687F91 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +394,7 @@
 				148323802C3A02D600687F91 /* SchemaMetadata.graphql.swift in Sources */,
 				148323792C3A02D600687F91 /* Person.graphql.swift in Sources */,
 				1483237A2C3A02D600687F91 /* Planet.graphql.swift in Sources */,
+				1483238C2C3A1BE800687F91 /* ApolloClient+.swift in Sources */,
 				148323812C3A02D600687F91 /* GraphQL.graphql.swift in Sources */,
 				148323782C3A02D600687F91 /* FilmSpeciesConnection.graphql.swift in Sources */,
 				1483237B2C3A02D600687F91 /* Root.graphql.swift in Sources */,
