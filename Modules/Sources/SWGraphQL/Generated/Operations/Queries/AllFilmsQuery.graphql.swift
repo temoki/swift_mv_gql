@@ -4,11 +4,11 @@
 @_exported import ApolloAPI
 
 public extension GraphQL {
-  class Query: GraphQLQuery {
-    public static let operationName: String = "Query"
+  class AllFilmsQuery: GraphQLQuery {
+    public static let operationName: String = "AllFilmsQuery"
     public static let operationDocument: ApolloAPI.OperationDocument = .init(
       definition: .init(
-        #"query Query { allFilms { __typename films { __typename title director releaseDate speciesConnection { __typename species { __typename name classification homeworld { __typename name } } } } } }"#
+        #"query AllFilmsQuery { allFilms { __typename films { __typename title director releaseDate speciesConnection { __typename species { __typename name classification homeworld { __typename name } } } } } }"#
       ))
 
     public init() {}

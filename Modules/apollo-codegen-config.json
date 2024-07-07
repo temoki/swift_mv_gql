@@ -2,10 +2,10 @@
   "schemaNamespace" : "GraphQL",
   "input" : {
     "operationSearchPaths" : [
-      "./SWGraphQL/Operation/*.graphql"
+      "./Sources/SWGraphQL/Operation/*.graphql"
     ],
     "schemaSearchPaths" : [
-      "./SWGraphQL/Schema/*.graphqls"
+      "./Sources/SWGraphQL/Schema/*.graphqls"
     ]
   },
   "output" : {
@@ -14,11 +14,11 @@
       }
     },
     "schemaTypes" : {
-      "path" : "./SWGraphQL/Generated",
+      "path" : "./Sources/SWGraphQL/Generated",
       "moduleType" : {
-        "embeddedInTarget" : {
-          "name" : "SwiftMvGql",
-          "accessModifier": "public"
+        "embeddedInTarget": {
+          "name" : "SWGraphQL",
+          "accessModifier" : "public"
         }
       }
     },
