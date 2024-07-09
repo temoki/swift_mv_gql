@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "Modules",
-    platforms: [.iOS(.v15), .watchOS(.v8)],
+    platforms: [.iOS(.v16), .watchOS(.v8)],
     products: [
         .library(name: "App", targets: ["View", "Model", "SWGraphQL"]),
     ],

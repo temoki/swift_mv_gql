@@ -3,31 +3,33 @@ import Combine
 import Dependencies
 import SWGraphQL
 
-public typealias Film = GraphQL.AllFilmsQuery.Data.AllFilms.Film
-
 @MainActor
-public protocol AllFilmsModelProtocol: ObservableObject {
-    var films: [Film] { get }
-    func load()
-}
-
-public class AllFilmsModel: AllFilmsModelProtocol {
+public class AllFilmsModel: ObservableObject {
     @Dependency(\.apolloClient) var apolloClient
+    public typealias Film = GraphQL.AllFilmsQuery.Data.AllFilms.Film
     
     @Published public private(set) var films: [Film] = []
+    @Published public private(set) var graphQlErrors: [GraphQLError] = []
+    @Published public private(set) var error: Error?
     
-    public func load() {
+    public init() {
+        update()
+    }
+    
+    public func update() {
         Task {
             do {
-                let query = GraphQL.AllFilmsQuery()
-                let result = try await apolloClient.returnCacheDataElseFetch(query: query)
-                if let data = result.data {
-                    films = data.allFilms?.films?.compactMap { $0 } ?? []
-                } else if let errors = result.errors {
-                    print(errors)
+                graphQlErrors = []
+                error = nil
+                for try await result in apolloClient.returnCacheDataAndFetch(query: GraphQL.AllFilmsQuery()) {
+                    if let data = result.data {
+                        films = data.allFilms?.films?.compactMap { $0 } ?? []
+                    } else if let errors = result.errors {
+                        graphQlErrors = errors
+                    }
                 }
             } catch {
-                print(error)
+                self.error = error
             }
         }
         .eraseToAnyCancellable()
